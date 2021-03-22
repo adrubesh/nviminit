@@ -16,20 +16,20 @@ function __nvim_listen() {
 function __check_uid() {
 	CURRENT_UID=`id -u`
 	CURRENT_USER=`whoami`
-	if [ "$CURRENT_UID" -ne "$USER_ID"]; then
+	if [[ "$CURRENT_UID" -ne "$USER_ID" ]]; then
 		printf "Changing user id."
 		sudo usermod -u "$USER_ID" "$CURRENT_USER"
 	fi
 }
 
 function __check_zsh() {
-	if [ -v ZSH_CONFIG_URL && ! -f ~/.zshrc ]; then
+	if [[ -v ZSH_CONFIG_URL && ! -f ~/.zshrc ]]; then
 		curl -o ~/.zshrc -L "$ZSH_CONFIG_URL"
 	fi
 }
 
 function __check_nvim() {
-	if [ -v NVIM_CONFIG_URL && ! -f ~/.config/nvim/init.vim ]; then
+	if [[ -v NVIM_CONFIG_URL && ! -f ~/.config/nvim/init.vim ]]; then
 		curl -o ~/.config/nvim/init.vim --create-dirs -L "$NVIM_CONFIG_URL"
 	fi
 }

@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 function __nvim_listen() {
 	if [ -z "$NVIM_LISTEN_PORT" ]; then

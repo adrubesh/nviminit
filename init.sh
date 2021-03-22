@@ -30,7 +30,7 @@ function __check_zsh() {
 
 function __check_nvim() {
 	if [[ -v NVIM_CONFIG_URL && ! -f ~/.config/nvim/init.vim ]]; then
-		curl -o ~/.config/nvim/init.vim --create-dirs -L "$NVIM_CONFIG_URL"
+		git clone "$NVIM_CONFIG_URL" ~/config/nvim
 	fi
 }
 
